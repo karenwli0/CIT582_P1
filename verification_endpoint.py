@@ -34,7 +34,7 @@ def verify():
 
         eth_encoded_msg = payload.get('message')
 
-        if eth_account.Account.recover_message(eth_encoded_msg, signature) == pk:
+        if eth_account.Account.recover_message(payload, signature) == pk:
             result = True
 
     if platform == 'Algorand':
