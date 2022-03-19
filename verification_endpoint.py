@@ -17,6 +17,7 @@ def verify():
     platform = payload.get('platform')
     sig = content.get('sig')
     pk = payload.get('pk')
+    print(platform, sig, pk)
 
     # print(json.dumps(content, indent=1))
 
