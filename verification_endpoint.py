@@ -34,13 +34,13 @@ def verify():
 
         eth_encoded_msg = str(payload.get('message'))
 
-        if eth_account.Account.recover_message(eth_encoded_msg, signature) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, signature.hex()) == pk:
             result = True
 
     if platform == 'Algorand':
         # algo_sk, algo_pk = algosdk.account.generate_account()
         # algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'), algo_sk)
-        encoded_msg = str(payload.get('message'))
+        encoded_msg = payload.get('message')
 
         if algosdk.util.verify_bytes(encoded_msg.encode('utf-8'), signature, pk):
             result = True
