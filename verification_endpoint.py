@@ -43,7 +43,7 @@ def verify():
         # algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'), algo_sk)
         encoded_msg = payload.get('message')
 
-        if algosdk.util.verify_bytes(encoded_msg.encode('utf-8'), signature, pk):
+        if algosdk.util.verify_bytes(encoded_msg.encode('utf-8'), sig, pk):
             result = True
 
     # Check if signature is valid
