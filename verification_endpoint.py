@@ -15,7 +15,7 @@ def verify():
 
     payload = content.get('payload')
     platform = payload.get('platform')
-    signature = content.get('sig')
+    sig = content.get('sig')
     pk = payload.get('pk')
 
     # print(json.dumps(content, indent=1))
@@ -34,7 +34,7 @@ def verify():
 
         eth_encoded_msg = payload.get('message')
 
-        if eth_account.Account.recover_message(payload, signature) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, signature=sig) == pk:
             result = True
 
     if platform == 'Algorand':
