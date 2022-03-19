@@ -17,21 +17,10 @@ def verify():
     platform = payload.get('platform')
     sig = content.get('sig')
     pk = payload.get('pk')
-    print(platform, sig, pk)
-
-    # print(json.dumps(content, indent=1))
 
     result = False
 
     if platform == 'Ethereum':
-        # eth_account.Account.enable_unaudited_hdwallet_features()
-        # acct, mnemonic = eth_account.Account.create_with_mnemonic()
-        #
-        # eth_pk = acct.address
-        # eth_sk = acct.key
-        #
-        # eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
-        # eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg, eth_sk)
 
         msg = payload.get('message')
         encoded_msg = eth_account.messages.encode_defunct(text=msg)
@@ -40,8 +29,6 @@ def verify():
             result = True
 
     if platform == 'Algorand':
-        # algo_sk, algo_pk = algosdk.account.generate_account()
-        # algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'), algo_sk)
         msg = payload.get('message')
         print(msg)
 
