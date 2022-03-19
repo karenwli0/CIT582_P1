@@ -32,9 +32,9 @@ def verify():
         # eth_encoded_msg = eth_account.messages.encode_defunct(text=payload)
         # eth_sig_obj = eth_account.Account.sign_message(eth_encoded_msg, eth_sk)
 
-        eth_encoded_msg = str(payload.get('message'))
+        eth_encoded_msg = payload.get('message')
 
-        if eth_account.Account.recover_message(eth_encoded_msg, signature.hex()) == pk:
+        if eth_account.Account.recover_message(eth_encoded_msg, content.signature.hex()) == pk:
             result = True
 
     if platform == 'Algorand':
