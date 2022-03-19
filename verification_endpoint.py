@@ -16,6 +16,8 @@ def verify():
     payload = content.get('payload')
     platform = payload.get('platform')
 
+    print(json.dumps(content, indent=1))
+
     result = False
 
     if platform == 'Ethereum':
