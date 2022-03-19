@@ -41,9 +41,9 @@ def verify():
     if platform == 'Algorand':
         # algo_sk, algo_pk = algosdk.account.generate_account()
         # algo_sig_str = algosdk.util.sign_bytes(payload.encode('utf-8'), algo_sk)
-        encoded_msg = payload.get('message')
+        msg = payload.get('message')
 
-        if algosdk.util.verify_bytes(encoded_msg.encode('utf-8'), sig, pk):
+        if algosdk.util.verify_bytes(payload.encode('utf-8'), sig, pk):
             result = True
 
     # Check if signature is valid
