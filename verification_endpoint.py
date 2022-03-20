@@ -22,15 +22,16 @@ def verify():
 
     if platform == 'Ethereum':
 
-        msg = payload.get('message')
+        # msg = payload.get('message')
+        msg = payload
         encoded_msg = eth_account.messages.encode_defunct(text=msg)
 
         if eth_account.Account.recover_message(encoded_msg, signature=sig) == pk:
             result = True
 
     if platform == 'Algorand':
-        msg = payload.get('message')
-        print(msg)
+        # msg = payload.get('message')
+        msg = payload
 
         if algosdk.util.verify_bytes(msg.encode('utf-8'), sig, pk):
             result = True
